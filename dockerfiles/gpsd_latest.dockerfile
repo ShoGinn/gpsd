@@ -1,8 +1,7 @@
-ARG ARCH=armhf
-FROM multiarch/alpine:${ARCH}-v3.9
+FROM alpine
 
-RUN apk add --no-cache gpsd tini
+RUN apk add --no-cache gpsd
 
 EXPOSE 2947
 
-ENTRYPOINT [ "tini", "--", "/bin/sh", "-c", "/sbin/syslogd -S -O - -n & exec /usr/sbin/gpsd -N -n -G ${*}","--"]
+ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]
