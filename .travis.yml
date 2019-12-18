@@ -5,7 +5,8 @@ if: |
   branch = master AND ! commit_message =~ /README.md/ AND ! commit_message =~ /docker-compose.yml/
   OR type = cron
 
-language: shell
+language: bash
+sudo: required
 
 services:
   - docker
@@ -22,7 +23,7 @@ env:
     - VCS_REF="$(git rev-parse --short HEAD)"
     - VCS_URL="$(git remote get-url origin | head -c-5)"
 
-  jobs:
+  matrix:
     - DOCKER_TAG="latest"
 
 before_install:
