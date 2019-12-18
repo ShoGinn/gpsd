@@ -51,7 +51,7 @@ script:
 deploy:
   provider: script
   script: sudo bash travis/deploy.sh
-  cleanup: false
+  skip_cleanup: true
   on:
     branch: master
 
