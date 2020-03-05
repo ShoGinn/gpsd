@@ -1,0 +1,2 @@
+DOCKER_DESCRIPTION="Docker container for gpsd"
+DOCKER_NAME="gpsd"
